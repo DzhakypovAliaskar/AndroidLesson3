@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/weatherFragment">
+
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.example.android3lesson3.ui.fragment.WeatherFragment"
+        android:label="fragment_weather"
+        tools:layout="@layout/fragment_weather" >
+        <action
+            android:id="@+id/action_weatherFragment_to_cityFragment2"
+            app:destination="@id/cityFragment2"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+        <argument
+            android:name="CityNav"
+            app:argType="string"
+            android:defaultValue="Bishkek" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityFragment2"
+        android:name="com.example.android3lesson3.ui.fragment.CityFragment"
+        android:label="fragment_city"
+        tools:layout="@layout/fragment_city" >
+        <action
+            android:id="@+id/action_cityFragment2_to_mapFragment2"
+            app:destination="@id/mapFragment2"/>
+
+        <action
+            android:id="@+id/action_cityFragment2_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment2"
+        android:name="com.example.android3lesson3.ui.fragment.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_mapFragment2_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+    </fragment>
+</navigation>
